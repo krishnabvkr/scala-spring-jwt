@@ -9,6 +9,4 @@ import app.repositories.MovieRepository
  * Service to provide the movie repository
  */
 @Service
-class MoviesService(@Autowired val movieRepository: MovieRepository) {
-
-}
+class MoviesService(@Autowired val movieRepository: MovieRepository)

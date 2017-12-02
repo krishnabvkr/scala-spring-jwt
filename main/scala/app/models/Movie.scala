@@ -8,7 +8,7 @@ import javax.persistence.GenerationType
 import javax.persistence.Table
 
 /**
- * @author 10358
+ * @author Krishna Reddy
  * Bean class to hold the movie information
  */
 

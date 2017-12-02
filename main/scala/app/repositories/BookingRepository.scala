@@ -14,6 +14,4 @@ import java.lang.Long
  */
 
 @Repository
-trait BookingRepository extends CrudRepository[Booking, Long] {
-  
-}
+trait BookingRepository extends CrudRepository[Booking, Long] 

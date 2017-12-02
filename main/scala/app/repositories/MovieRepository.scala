@@ -11,6 +11,4 @@ import app.models.Movie
  */
 
 @Repository
-trait MovieRepository extends CrudRepository[Movie, Long] {
-  
-}
+trait MovieRepository extends CrudRepository[Movie, Long] 

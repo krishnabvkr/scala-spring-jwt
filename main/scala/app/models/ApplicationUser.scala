@@ -16,7 +16,7 @@ import javax.persistence.Table
 @Table(name="users")
  class ApplicationUser{
   @Id  @GeneratedValue(strategy = GenerationType.IDENTITY)
-                            @BeanProperty var id: Long=_  
+                            @BeanProperty var id: Long=_ 
                             @BeanProperty var emailId: String=_
                             @BeanProperty var password: String=_
 }

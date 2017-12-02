@@ -1,18 +1,19 @@
 package app.controllers
 
-import org.springframework.web.bind.annotation.RestController
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.PostMapping
-import app.models.Movie
+import java.util.Calendar
+
 import org.springframework.beans.factory.annotation.Autowired
-import app.repositories.BookingRepository
+import org.springframework.http.HttpHeaders
+import org.springframework.http.HttpStatus
+import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
+
 import app.models.Booking
 import app.models.CreditCardInfo
-import java.util.Date
-import org.springframework.http.HttpStatus
-import org.springframework.http.HttpHeaders
-import org.springframework.http.ResponseEntity
+import app.repositories.BookingRepository
 
 
 /**
@@ -41,15 +42,15 @@ class BookingController(@Autowired bookingRepository:BookingRepository ) {
    * To validate the given credit card details
    * */
   def isValidateCardDetails(cardDetails:CreditCardInfo):Boolean={
-    var isValidCardInfo = true
-    isValidCardInfo = if (cardDetails != null) {
+    if (cardDetails != null) {
+      val cal = Calendar.getInstance()
       if (cardDetails.name == null || cardDetails.name.size == 0) false
       else if (cardDetails.cardNumber == null || cardDetails.cardNumber.size != 16) false
       else if (cardDetails.cvvNumber.toString.size != 3) false
-      else if (!(cardDetails.experiryMonth >= 1 && cardDetails.experiryMonth <= 12 )) false
-      else if (cardDetails.experiryYear < new Date().getYear) false
+      else if ((cardDetails.experiryMonth < 1 || cardDetails.experiryMonth > 12 )|| 
+           (cardDetails.experiryYear == cal.get(Calendar.YEAR) && cardDetails.experiryMonth < cal.get(Calendar.MONTH))) false
+      else if (cardDetails.experiryYear < cal.get(Calendar.YEAR)) false
       else true
     } else false
-    isValidCardInfo
   }
 }

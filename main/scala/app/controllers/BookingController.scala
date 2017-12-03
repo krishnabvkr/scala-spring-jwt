@@ -42,7 +42,6 @@ class BookingController(@Autowired bookingRepository:BookingRepository ) {
       else if (cardDetails.cvvNumber.toString.size != 3) false
       else if (cardDetails.experiryMonth < 1 || cardDetails.experiryMonth > 12 || 
            (cardDetails.experiryYear == cal.get(Calendar.YEAR) && cardDetails.experiryMonth < cal.get(Calendar.MONTH))) false
-      else if (cardDetails.experiryYear < cal.get(Calendar.YEAR)) false
-      else true
+      else  !(cardDetails.experiryYear < cal.get(Calendar.YEAR)) 
   }
 }

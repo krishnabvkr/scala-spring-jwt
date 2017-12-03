@@ -1,16 +1,7 @@
 package app.controllers
 
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.CrossOrigin
-import org.springframework.web.bind.annotation.DeleteMapping
-import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PathVariable
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.PutMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
-
+import org.springframework.web.bind.annotation.{DeleteMapping,GetMapping,PathVariable,PostMapping,RequestBody,RequestMapping,RestController}
 import app.models.Movie
 import app.repositories.MovieRepository
 
@@ -20,7 +11,6 @@ import app.repositories.MovieRepository
  * Rest controller to handle the movie related requests
  * */
 @RestController
-@CrossOrigin
 @RequestMapping(Array("/api/list"))
 class MovieController(@Autowired movieRepository: MovieRepository) {
 

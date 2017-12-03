@@ -27,7 +27,7 @@ class BookingController(@Autowired bookingRepository:BookingRepository ) {
   def bookTicket(@RequestBody booking: Booking) = {
     if(isValidateCardDetails(booking.cardInfo)){
     bookingRepository.save(booking)
-    new ResponseEntity("success", new HttpHeaders, HttpStatus.CREATED)
+    new ResponseEntity("success", new HttpHeaders, HttpStatus.OK)
     }else new ResponseEntity("invalid credit card information", new HttpHeaders, HttpStatus.BAD_REQUEST)
   }
   

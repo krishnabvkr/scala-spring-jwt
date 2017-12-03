@@ -12,8 +12,8 @@ import com.fasterxml.jackson.module.scala.DefaultScalaModule
 class Application() {
 
   //Modulo Jackson per conversioni scala
-  @Bean
-  def parameterNamesModule(): Module = new DefaultScalaModule
+  /*@Bean
+  def parameterNamesModule(): Module = new DefaultScalaModule*/
 
   @Bean
   def bCryptPasswordEncoder() = new BCryptPasswordEncoder()

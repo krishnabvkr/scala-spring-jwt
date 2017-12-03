@@ -1,7 +1,6 @@
 package app.security
 
-import io.jsonwebtoken.Jwts
-import io.jsonwebtoken.SignatureAlgorithm
+import io.jsonwebtoken.{Jwts,SignatureAlgorithm}
 import java.util.Date
 
 /**

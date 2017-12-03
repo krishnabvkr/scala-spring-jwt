@@ -1,17 +1,13 @@
+
 package app.models
 
 import scala.beans.BeanProperty
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
-import javax.persistence.GenerationType
-import javax.persistence.ManyToOne
-import javax.persistence.CascadeType
+import javax.persistence.{Entity,GeneratedValue,Id,GenerationType,ManyToOne,CascadeType}
 
 
 /**
- * @author 10358
+ * @author Krishna Reddy
  *Bean class to hold the booking information
  */
 @Entity

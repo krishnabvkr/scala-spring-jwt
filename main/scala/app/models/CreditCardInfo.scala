@@ -1,14 +1,11 @@
 package app.models
 
 import scala.beans.BeanProperty
-import javax.persistence.Id
-import javax.persistence.GeneratedValue
-import org.hibernate.annotations.GeneratorType
-import javax.persistence.GenerationType
-import javax.persistence.Entity
+import javax.persistence.{Id,GeneratedValue,GenerationType,Entity}
+
 
 /**
- * @author 10358
+ * @author Krishna Reddy
  * Bean class to hold the Credit card information
  */
 

@@ -1,11 +1,7 @@
 package app.models
 
-import javax.persistence.Entity
-import javax.persistence.GeneratedValue
-import javax.persistence.Id
+import javax.persistence.{GeneratedValue,Id,GenerationType,Table,Entity}
 import scala.beans.BeanProperty
-import javax.persistence.GenerationType
-import javax.persistence.Table
 
 /**
  * @author Krishna Reddy

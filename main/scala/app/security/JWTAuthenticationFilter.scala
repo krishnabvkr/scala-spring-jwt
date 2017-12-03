@@ -17,6 +17,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import SecurityUtils._
 import com.fasterxml.jackson.module.scala.DefaultScalaModule
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher
+import org.springframework.http.HttpStatus
 
 
 
@@ -60,10 +61,10 @@ class JWTAuthenticationFilter(
 
     val token: String = Jwts.builder()
       .setSubject(auth.getPrincipal.asInstanceOf[User].getUsername)
-      .setExpiration(new Date(System.currentTimeMillis + EXPIRATION_TIME))
+      .setExpiration(new Date(System.currentTimeMillis + ExpirationTime))
       .signWith(SignatureAlgorithm.HS512, SECRET)
       .compact()
-    response.addHeader(HEADER_STRING, TOKEN_PREFIX + token)
+    response.addHeader(HeaderString, TokenPrefix + token)
 
   }
 

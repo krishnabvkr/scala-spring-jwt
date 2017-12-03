@@ -9,18 +9,18 @@ import java.util.Date
  * */
 object SecurityUtils {
   val SECRET = "SecretToSignJWT"
-  val EXPIRATION_TIME = 3600000 // 1 hour
-  val TOKEN_PREFIX = "Bearer "
-  val HEADER_STRING = "Authorization"
-  val SIGN_UP_URL = "/api/users/register"
-  val LOGIN_URL = "/api/auth"
+  val ExpirationTime = 3600000 // 1 hour
+  val TokenPrefix = "Bearer "
+  val HeaderString = "Authorization"
+  val SignUpURL = "/api/users/register"
+  val LoginURL = "/api/auth"
   
   
   /**To generate the JWT token for user authentication*/
   def generateToken(username:String):String= {
 		 Jwts.builder()
 				.setSubject(username)
-				.setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+				.setExpiration(new Date(System.currentTimeMillis() + ExpirationTime))
 				.signWith(SignatureAlgorithm.HS512, SECRET.getBytes())
 				.compact();
 	}

@@ -36,7 +36,7 @@ class ApplicationUserController(
       val hashedPassword = bCryptPasswordEncoder.encode(user.password)
       user.password_=(hashedPassword)
       applicationUserRepository.save(user)
-      res.addHeader(HEADER_STRING, TOKEN_PREFIX + " " + SecurityUtils.generateToken(user.emailId))
+      res.addHeader(HeaderString, TokenPrefix + " " + SecurityUtils.generateToken(user.emailId))
       new ResponseEntity("", new HttpHeaders, HttpStatus.OK)
     } else
       new ResponseEntity("user already taken", new HttpHeaders, HttpStatus.BAD_REQUEST)

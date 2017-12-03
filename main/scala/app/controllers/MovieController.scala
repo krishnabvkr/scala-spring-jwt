@@ -1,7 +1,7 @@
 package app.controllers
 
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.{DeleteMapping,GetMapping,PathVariable,PostMapping,RequestBody,RequestMapping,RestController}
+import org.springframework.web.bind.annotation._
 import app.models.Movie
 import app.repositories.MovieRepository
 

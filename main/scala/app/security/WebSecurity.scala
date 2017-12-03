@@ -23,10 +23,10 @@ class WebSecurity(
   @throws(classOf[Exception])
   override def configure(http: HttpSecurity): Unit = {
     http.csrf().disable().authorizeRequests()
-      .antMatchers(HttpMethod.POST, SIGN_UP_URL).permitAll()
+      .antMatchers(HttpMethod.POST, SignUpURL).permitAll()
       .anyRequest().authenticated()
       .and()
-      .addFilter(JWTAuthenticationFilter(authenticationManager(), LOGIN_URL))
+      .addFilter(JWTAuthenticationFilter(authenticationManager(), LoginURL))
       .addFilter(new JWTAuthorizationFilter(authenticationManager()))
   }
 

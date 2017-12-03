@@ -2,14 +2,9 @@ package app.models
 
 import scala.beans.BeanProperty
 
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.GenerationType
-import javax.persistence.GeneratedValue
-import javax.persistence.Table
+import javax.persistence.{Entity,Id,GenerationType,GeneratedValue,Table}
 
 /**
- * @author 10358
  *Bean class to hold the user information
  */
 @Entity

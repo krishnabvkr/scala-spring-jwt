@@ -26,9 +26,9 @@ class JWTAuthorizationFilter(authManager: AuthenticationManager) extends BasicAu
                                  chain: FilterChain,
                                ): Unit = {
 
-    val header: String = request.getHeader(HEADER_STRING)
+    val header: String = request.getHeader(HeaderString)
 
-    if (header==null || !header.startsWith(TOKEN_PREFIX)) {
+    if (header==null || !header.startsWith(TokenPrefix)) {
       chain.doFilter(request, response)
     } else {
       val authentication: UsernamePasswordAuthenticationToken = getAuthentication(request)
@@ -43,10 +43,10 @@ class JWTAuthorizationFilter(authManager: AuthenticationManager) extends BasicAu
  * */
   private def getAuthentication(request: HttpServletRequest): UsernamePasswordAuthenticationToken = {
 
-    val token: String = request.getHeader(HEADER_STRING)
+    val token: String = request.getHeader(HeaderString)
     val user: String = Jwts.parser()
                     .setSigningKey(SECRET)
-                    .parseClaimsJws(token.replace(TOKEN_PREFIX, ""))
+                    .parseClaimsJws(token.replace(TokenPrefix, ""))
                     .getBody().getSubject()
 
     if (user != null) {
